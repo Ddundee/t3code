@@ -663,6 +663,17 @@ export const OpenCodeIcon: Icon = (props) => (
   </svg>
 );
 
+export const OmniIcon: Icon = ({ className, ...props }) => (
+  <svg {...props} className={className} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="1.75" />
+    <path
+      d="M8.5 12c0-1.93 1.57-3.5 3.5-3.5S15.5 10.07 15.5 12 13.93 15.5 12 15.5 8.5 13.93 8.5 12Z"
+      fill="currentColor"
+    />
+    <path d="M12 4.5v3M12 16.5v3M4.5 12h3M16.5 12h3" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" />
+  </svg>
+);
+
 export const GithubCopilotIcon: Icon = ({ className, ...props }) => (
   <svg
     {...props}

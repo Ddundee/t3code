@@ -32,3 +32,9 @@ node_modules/
 *.log
 .env*
 !.env.example
+
+# Local pnpm content-addressable store (machine-local, do not commit)
+.pnpm-store/
+
+# Local Claude Code session/agent state
+.claude/
