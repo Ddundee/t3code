@@ -296,7 +296,7 @@ const make = Effect.gen(function* () {
     function* (connection) {
       const httpClient = yield* HttpClient.HttpClient;
       const request = withAuth(
-        HttpClientRequest.get(`${connection.baseUrl}/api/agents?limit=100`).pipe(
+        HttpClientRequest.get(`${connection.baseUrl}/v1/agents`).pipe(
           HttpClientRequest.acceptJson,
         ),
         connection.authToken,
