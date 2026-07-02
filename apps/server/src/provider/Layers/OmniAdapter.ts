@@ -306,6 +306,14 @@ export function makeOmniAdapter(omniSettings: OmniSettings, _options?: OmniAdapt
           );
           return;
         }
+        // Terminal turn signals. NOTE: this ordering assumption (content streams
+        // BEFORE the completion signal) holds for Omni's API agents
+        // (harness `claude-sdk`, e.g. polly/debby). It does NOT hold for the
+        // `*-native-ui` terminal-wrapper agents, which emit `response.completed`
+        // and an early `session.status: idle` ~1s in — before any content — then
+        // stream the real reply later under a nested response id. Those agents
+        // therefore appear to "stop after the first message" and are unsupported;
+        // pick an API agent instead. See docs/providers/omni.md.
         case "response.completed":
         case "response.incomplete":
         case "response.cancelled": {
